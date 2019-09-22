@@ -2,9 +2,17 @@ import cv2
 import time
 import os
 from datetime import datetime
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument('-c', type=int, default=0,
+                    help="the number of the webcam device")
+args = parser.parse_args()
+cam = args.c
+
 
 # creating a video object using default cam
-video = cv2.VideoCapture(0)
+video = cv2.VideoCapture(cam)
 
 # max number of frames to capture
 nframes = 10
@@ -14,7 +22,8 @@ interval = 5
 
 folder = "pictures/"
 
-os.mkdir(folder)
+if not os.path.exists(folder):
+    os.makedirs(folder)
 
 a = 0
 while a < nframes:

@@ -7,3 +7,4 @@ Folder is created.
 
 Files are named by timestamp `file<yymmddhhmmss>.jpg`
 
+Press `q` to stop
