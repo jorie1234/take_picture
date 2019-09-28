@@ -5,17 +5,19 @@ from datetime import datetime
 import argparse
 
 parser = argparse.ArgumentParser()
-parser.add_argument('-c', type=int, default=0,
+parser.add_argument('-w', type=int, default=0,
                     help="the number of the webcam device")
+parser.add_argument('-c', type=int, default=0,
+                    help="number of frames to capture. Default is forever")
 args = parser.parse_args()
-cam = args.c
+cam = args.w
 
 
 # creating a video object using default cam
 video = cv2.VideoCapture(cam)
 
 # max number of frames to capture
-nframes = 10
+nframes = args.c
 
 # capture every 5 seconds
 interval = 5
